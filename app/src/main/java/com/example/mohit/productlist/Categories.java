@@ -14,7 +14,7 @@ public class Categories extends AppCompatActivity {
     }
 
     public void noodle(View view) {
-        Intent intent = new Intent(this, NoodleActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
