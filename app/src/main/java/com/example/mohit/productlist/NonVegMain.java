@@ -29,16 +29,16 @@ public class NonVegMain extends AppCompatActivity {
         });*/
 
         ArrayList<ModelProducts> noodleProducts = new ArrayList<>();
-        ModelProducts vegNoodle = new ModelProducts("Veg. Noodle","Vegetarian Noodles",80,0);
-        ModelProducts vegShezwanNoodle = new ModelProducts("Veg Schezwan Noodle","Veg Noodle with a twist of Schezwan",90,0);
-        ModelProducts vegTripleNoodle = new ModelProducts("Veg. Triple Noodle","Veg. Triple Noodle",100,0);
-        ModelProducts vegMunchurianNoodle = new ModelProducts("Veg Munchurian Noodle","Veg Munchurian Noodle",90,0);
-        ModelProducts PaneerNoodle = new ModelProducts("Paneer Noodle", "Enjoy your Noodle with Paneer",100,0);
-        ModelProducts EggNoodle = new ModelProducts("Egg Noodle", "Noodle With eggs", 80, 0);
-        ModelProducts chickenHakkaNoodle = new ModelProducts("Chicken Hakka Noodle", "Delicious hakka noodle with chicken", 90,0);
-        ModelProducts chickenSchezwanNoodle = new ModelProducts("Chicken Schezwan Noodle","Chicken Noodle with schezwan sauce", 100,0);
-        ModelProducts chickenTripleNoodle = new ModelProducts("Chicken Triple Noodle", "Chicken Triple Noodle",110,0);
-        ModelProducts chickenManchurianNoodle = new ModelProducts("Chicken Munchurian Noodle","Chicken noodle with munchurian gravy",100,0);
+        ModelProducts vegNoodle = new ModelProducts("Chicken Lawabdar","Vegetarian Noodles",80,0);
+        ModelProducts vegShezwanNoodle = new ModelProducts("Chicken Kalimirch Masala","Veg Noodle with a twist of Schezwan",90,0);
+        ModelProducts vegTripleNoodle = new ModelProducts("Chicken Peshawari","Veg. Triple Noodle",100,0);
+        ModelProducts vegMunchurianNoodle = new ModelProducts("Chicken Kadai","Veg Munchurian Noodle",90,0);
+        ModelProducts PaneerNoodle = new ModelProducts("Tawa Chicken", "Enjoy your Noodle with Paneer",100,0);
+        ModelProducts EggNoodle = new ModelProducts("Chilli Chicken", "Noodle With eggs", 80, 0);
+        ModelProducts chickenHakkaNoodle = new ModelProducts("Chicken Soya Kadai", "Delicious hakka noodle with chicken", 90,0);
+        ModelProducts chickenSchezwanNoodle = new ModelProducts("Chicken Handi","Chicken Noodle with schezwan sauce", 100,0);
+        ModelProducts chickenTripleNoodle = new ModelProducts("Chicken Patiala", "Chicken Triple Noodle",110,0);
+        ModelProducts chickenManchurianNoodle = new ModelProducts("Butter Chicken","Chicken noodle with munchurian gravy",100,0);
         noodleProducts.add(0,vegNoodle);
         noodleProducts.add(1,vegShezwanNoodle);
         noodleProducts.add(2,vegTripleNoodle);

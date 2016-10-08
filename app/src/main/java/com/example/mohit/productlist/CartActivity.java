@@ -48,4 +48,9 @@ public class CartActivity extends AppCompatActivity {
         }
         totalPrice.setText(Double.toString(totalAmount));
     }
+
+    public void proceedFromCart(View view) {
+        Intent intent = new Intent(this, AfterCart.class);
+        startActivity(intent);
     }
+}

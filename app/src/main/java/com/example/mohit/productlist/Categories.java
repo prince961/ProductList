@@ -14,12 +14,12 @@ public class Categories extends AppCompatActivity {
     }
 
     public void noodle(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, Noodle.class);
         startActivity(intent);
     }
 
     public void appetizers(View view) {
-        Intent intent = new Intent(this, StarterActivity.class);
+        Intent intent = new Intent(this, Appetizer.class);
         startActivity(intent);
     }
 
@@ -29,7 +29,12 @@ public class Categories extends AppCompatActivity {
     }
 
     public void vegMain(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, VegMainActivity.class);
+        startActivity(intent);
+    }
+
+    public void Breads(View view) {
+        Intent intent = new Intent(this, Breads.class);
         startActivity(intent);
     }
 }
