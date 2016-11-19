@@ -3,4 +3,11 @@
     <string name="title_activity_categories">Categories</string>
     <string name="title_activity_noodles">Noodles</string>
     <string name="title_activity_noodle">NoodleActivity</string>
+    <string name="login">Log In</string>
+    <string name="title_activity_after_login_try">AfterLoginTry</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

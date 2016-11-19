@@ -30,13 +30,16 @@
             android:name=".Categories"
             android:label="@string/title_activity_categories"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".NonVegMain" />
         <activity android:name=".Noodle" />
         <activity android:name=".Appetizer" />
         <activity android:name=".VegMainActivity" />
         <activity android:name=".Breads" />
-        <activity android:name=".AfterCart"></activity>
+        <activity android:name=".AfterCart" />
+        <activity
+            android:name=".AfterLoginTry"
+            android:label="@string/title_activity_after_login_try"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
