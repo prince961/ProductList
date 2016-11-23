@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
     private void logUserIn(User returnedUser) {
         userLocalStore.storeUserData(returnedUser);
         userLocalStore.SetUserLoggedIn(true);
-        Intent intent = new Intent(this, Categories.class);
+        Intent intent = new Intent(this, AfterLoginTry.class);
         startActivity(intent);
     }
 

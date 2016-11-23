@@ -13,4 +13,10 @@
     tools:context="com.example.mohit.productlist.AfterLoginTry"
     tools:showIn="@layout/app_bar_after_login_try">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/content_Frame"></FrameLayout>
+
+
 </RelativeLayout>
