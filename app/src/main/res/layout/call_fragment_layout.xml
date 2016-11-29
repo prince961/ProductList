@@ -29,7 +29,7 @@
 
     <Button
         android:text="Call Us"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/callButton"
         style="@style/Widget.AppCompat.Button.Colored"

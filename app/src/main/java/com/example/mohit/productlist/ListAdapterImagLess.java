@@ -77,9 +77,10 @@ public class ListAdapterImagLess extends ArrayAdapter<ModelProducts> {
                     int newQuant = quantity-1;
                         if(newQuant == 0){controller.getCart().removeProduct(productList.get(position));
                         finalViewHolder.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
+                            //finalViewHolder.quantity.setText(Integer.toString(21));
                         }
                     productList.get(position).setProductQuantity(newQuant);
-                    finalViewHolder1.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
+                    finalViewHolder.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
                         notifyDataSetChanged();
                     }
 

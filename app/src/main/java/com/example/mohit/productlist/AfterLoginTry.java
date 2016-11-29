@@ -30,20 +30,13 @@ public class AfterLoginTry extends AppCompatActivity
         setContentView(R.layout.activity_after_login_try);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        int titleId = getResources().getIdentifier("action_bar_title", "id",
-                "android");
-        TextView yourTextView = (TextView) findViewById(titleId);
-        //yourTextView.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-        Typeface typeFace = Typeface.createFromAsset(getAssets(), "serif22.ttf");
-        //yourTextView.setTypeface(typeFace);
-
+        fragmentManager.beginTransaction().replace(R.id.content_Frame, new CategoriesFragmenent2()).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Your have no items in your cart", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -58,15 +51,7 @@ public class AfterLoginTry extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,11 +75,26 @@ public class AfterLoginTry extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
+    FragmentManager fragmentManager = getFragmentManager();
+    public void noodle(View view){
+        fragmentManager.beginTransaction().replace(R.id.content_Frame, new CallFragment()).commit();
+    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        FragmentManager fragmentManager = getFragmentManager();
+        //FragmentManager fragmentManager = getFragmentManager();
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -106,13 +106,14 @@ public class AfterLoginTry extends AppCompatActivity
 
 
         } else if (id == R.id.nav_menu) {
+            fragmentManager.beginTransaction().replace(R.id.content_Frame, new CategoriesFragmenent2()).addToBackStack("menu item").commit();
 
-            Intent intent = new Intent(this, Categories.class);
-            startActivity(intent);
+            //Intent intent = new Intent(this, CategoriesFragmenent2.class);
+            //startActivity(intent);
 
         } else if (id == R.id.contact_us) {
-            //Intent mapIntent = new Intent(this, MapsActivity.class);
-            //startActivity(mapIntent);
+            Intent mapIntent = new Intent(this, MapsActivity.class);
+            startActivity(mapIntent);
 
         }
 

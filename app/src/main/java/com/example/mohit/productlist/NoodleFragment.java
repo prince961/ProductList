@@ -1,32 +1,38 @@
 package com.example.mohit.productlist;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Noodle extends AppCompatActivity {
+/**
+ * Created by princ on 25-11-2016.
+ */
+
+public class NoodleFragment extends Fragment {
 
     Controller controller = null;
-
+    View myView;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_noodle);
-        ListView listViewNoodle = (ListView) findViewById(R.id.LvNoodle);
-        controller = (Controller) getApplicationContext();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.activity_noodle,container,false);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        ListView listViewNoodle = (ListView) myView.findViewById(R.id.LvNoodle);
+        controller = (Controller) getActivity().getApplicationContext();
 
         ArrayList<ModelProducts> noodleProducts = new ArrayList<>();
         ModelProducts vegNoodle = new ModelProducts("Veg. Noodle", "Vegetarian Noodles", 80, 0);
@@ -53,15 +59,19 @@ public class Noodle extends AppCompatActivity {
 
         controller.addNoodlePs(noodleProducts);
 
-        ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getBaseContext(), R.layout.list_item_imageless, noodleProducts, controller);
+        ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, noodleProducts, controller);
         listViewNoodle.setAdapter(listAdapterImagLess);
 
+
+        return myView;
     }
 
+  //n ftxg = fragmentManager.beginTransaction().replace( R.id.fragment, new MyFragment() ).addToBackStack( "tag" ).commit();
 
 
-    public void goToCart(View view) {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-    }
+
+
+
+
+
 }
