@@ -29,16 +29,16 @@ public class NonVegMain extends AppCompatActivity {
         });*/
 
         ArrayList<ModelProducts> noodleProducts = new ArrayList<>();
-        ModelProducts vegNoodle = new ModelProducts("Chicken Lawabdar","Vegetarian Noodles",80,0);
-        ModelProducts vegShezwanNoodle = new ModelProducts("Chicken Kalimirch Masala","Veg Noodle with a twist of Schezwan",90,0);
-        ModelProducts vegTripleNoodle = new ModelProducts("Chicken Peshawari","Veg. Triple Noodle",100,0);
-        ModelProducts vegMunchurianNoodle = new ModelProducts("Chicken Kadai","Veg Munchurian Noodle",90,0);
-        ModelProducts PaneerNoodle = new ModelProducts("Tawa Chicken", "Enjoy your Noodle with Paneer",100,0);
-        ModelProducts EggNoodle = new ModelProducts("Chilli Chicken", "Noodle With eggs", 80, 0);
-        ModelProducts chickenHakkaNoodle = new ModelProducts("Chicken Soya Kadai", "Delicious hakka noodle with chicken", 90,0);
-        ModelProducts chickenSchezwanNoodle = new ModelProducts("Chicken Handi","Chicken Noodle with schezwan sauce", 100,0);
-        ModelProducts chickenTripleNoodle = new ModelProducts("Chicken Patiala", "Chicken Triple Noodle",110,0);
-        ModelProducts chickenManchurianNoodle = new ModelProducts("Butter Chicken","Chicken noodle with munchurian gravy",100,0);
+        ModelProducts vegNoodle = new ModelProducts("Chicken Lawabdar","Vegetarian Noodles",80,0,401);
+        ModelProducts vegShezwanNoodle = new ModelProducts("Chicken Kalimirch Masala","Veg Noodle with a twist of Schezwan",90,0,402);
+        ModelProducts vegTripleNoodle = new ModelProducts("Chicken Peshawari","Veg. Triple Noodle",100,0,403);
+        ModelProducts vegMunchurianNoodle = new ModelProducts("Chicken Kadai","Veg Munchurian Noodle",90,0,404);
+        ModelProducts PaneerNoodle = new ModelProducts("Tawa Chicken", "Enjoy your Noodle with Paneer",100,0,405);
+        ModelProducts EggNoodle = new ModelProducts("Chilli Chicken", "Noodle With eggs", 80, 0,406);
+        ModelProducts chickenHakkaNoodle = new ModelProducts("Chicken Soya Kadai", "Delicious hakka noodle with chicken", 90,0,407);
+        ModelProducts chickenSchezwanNoodle = new ModelProducts("Chicken Handi","Chicken Noodle with schezwan sauce", 100,0,408);
+        ModelProducts chickenTripleNoodle = new ModelProducts("Chicken Patiala", "Chicken Triple Noodle",110,0,409);
+        ModelProducts chickenManchurianNoodle = new ModelProducts("Butter Chicken","Chicken noodle with munchurian gravy",100,0,410);
         noodleProducts.add(0,vegNoodle);
         noodleProducts.add(1,vegShezwanNoodle);
         noodleProducts.add(2,vegTripleNoodle);
@@ -68,7 +68,7 @@ public class NonVegMain extends AppCompatActivity {
 
     }
 
-    private ArrayList<ModelProducts> addProductsToList() {
+   /* private ArrayList<ModelProducts> addProductsToList() {
         ArrayList<ModelProducts> returnProductList = new ArrayList<ModelProducts>();
 
         ModelProducts vegNoodle = new ModelProducts("Veg. Noodle","Vegetarian Noodles",80,0);
@@ -94,7 +94,7 @@ public class NonVegMain extends AppCompatActivity {
         returnProductList.add(ChickenTripleNoodle);
 
         return returnProductList;
-    }
+    }*/
 
     public void goToCart(View view) {
         Intent intent = new Intent(this, CartActivity.class);

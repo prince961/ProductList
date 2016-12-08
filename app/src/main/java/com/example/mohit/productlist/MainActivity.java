@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         for(int i=1;i<=20;i++) {
             int price = 10 + i;
             // Create product model class object
-           ModelProducts productObject = new ModelProducts( "Product"+i,"des"+i,i,0);
+           ModelProducts productObject = new ModelProducts( "Product"+i,"des"+i,i,0,i);
 
             //store product object to arraylist in controller
             allProducts.add(productObject);

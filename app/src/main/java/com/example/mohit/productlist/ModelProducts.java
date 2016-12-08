@@ -12,8 +12,9 @@ public class ModelProducts {
     private int productQuantity;
     private int position;
     private int image;
+    private int id;
 
-    public ModelProducts(String productName, String productDesc, int productPrice, int productQuantity)
+    public ModelProducts(String productName, String productDesc, int productPrice, int productQuantity,int id)
     {
         this.productName  = productName;
         this.productQuantity = productQuantity;
@@ -21,6 +22,7 @@ public class ModelProducts {
         this.productPrice = productPrice;
         //this.imageLink    = imageLink;
         this.image = R.drawable.logo;
+        this.id = id;
 
     }
 
@@ -70,5 +72,11 @@ public class ModelProducts {
         this.image = image;
     }
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 }

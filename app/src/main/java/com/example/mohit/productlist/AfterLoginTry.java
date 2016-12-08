@@ -36,8 +36,10 @@ public class AfterLoginTry extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Your have no items in your cart", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getBaseContext(),CartActivity.class);
+                startActivity(intent);
+                //Snackbar.make(view, "Your have no items in your cart", Snackbar.LENGTH_LONG)
+                     //   .setAction("Action", null).show();
             }
         });
 
