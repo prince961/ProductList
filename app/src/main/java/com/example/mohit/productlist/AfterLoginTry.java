@@ -20,6 +20,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static java.security.AccessController.getContext;
 
 public class AfterLoginTry extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,11 +36,15 @@ public class AfterLoginTry extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.content_Frame, new CategoriesFragmenent2()).commit();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),CartActivity.class);
-                startActivity(intent);
+              int count =  fragmentManager.getBackStackEntryCount();
+                Toast.makeText(getBaseContext(),Integer.toString(count),
+                        Toast.LENGTH_SHORT).show();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new CartFragment()).addToBackStack(null).commit();
                 //Snackbar.make(view, "Your have no items in your cart", Snackbar.LENGTH_LONG)
                      //   .setAction("Action", null).show();
             }
@@ -53,8 +60,41 @@ public class AfterLoginTry extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+   /* public void onBackPressed() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    } */
+
+    @Override
+    public void onBackPressed() {
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            startActivity(intent);
+        }
+        else {
+            getFragmentManager().popBackStack();
+        }
+    }
+
+/*
+    CallFragment call_fragment = (CallFragment) getFragmentManager().findFragmentById(R.id.callFragment);
+    @Override
+    public void onBackPressed() {
+        if (call_fragment != null && call_fragment.isVisible()) {
+            int count =  fragmentManager.getBackStackEntryCount();
+            Toast.makeText(getBaseContext(),Integer.toString(count),
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            getFragmentManager().popBackStack();
+        }
+    } */
 
 
+
+
+    /*m
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -76,21 +116,12 @@ public class AfterLoginTry extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+    */
 
 
     FragmentManager fragmentManager = getFragmentManager();
     public void noodle(View view){
-        fragmentManager.beginTransaction().replace(R.id.content_Frame, new CallFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.content_Frame, new CallFragment(),"CALL_FRAGMENT").commit();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -101,7 +132,7 @@ public class AfterLoginTry extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cart) {
-            // Handle the camera action
+            fragmentManager.beginTransaction().replace(R.id.content_Frame, new CartFragment(),"CART_FRAGMENT").addToBackStack(null).commit();
         } else if (id == R.id.nav_call) {
             fragmentManager.beginTransaction().replace(R.id.content_Frame, new CallFragment()).commit();
             //fragmentManager.beginTransaction().replace(R.id.content_Frame,new callFra()).commit();
@@ -123,4 +154,6 @@ public class AfterLoginTry extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

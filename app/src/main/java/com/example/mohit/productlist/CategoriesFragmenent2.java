@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,9 @@ public class CategoriesFragmenent2 extends Fragment {
         myView = inflater.inflate(R.layout.categories_fragment_layout,container,false);
         //FragmentManager fragmentManager = getFragmentManager();
 
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+
         ImageView noodleImage = (ImageView) myView.findViewById(R.id.noodleImage);
         //Button button = new Button()
         noodleImage.setOnClickListener(new View.OnClickListener()
@@ -31,7 +35,7 @@ public class CategoriesFragmenent2 extends Fragment {
             public void onClick(View v)
             {
                 FragmentManager fragmentManager = getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.content_Frame, new NoodleFragment()).addToBackStack("CatFragment").commit();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new NoodleFragment()).addToBackStack(null).commit();
 
 
 

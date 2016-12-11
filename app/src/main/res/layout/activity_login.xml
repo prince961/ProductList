@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#D50000"
-    tools:context="com.indiakathi.mvc.Login">
+    >
 
 
     <ImageView
@@ -61,28 +61,32 @@
         android:layout_below="@+id/etPasswordLogin"
         android:layout_centerHorizontal="true"
         android:onClick="LoginC"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:textSize="24sp"
         android:elevation="0dp"
         android:textAlignment="center"
         android:fontFamily="serif"
         android:backgroundTint="#56c271"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@color/cast_libraries_material_featurehighlight_text_header_color" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Register Here"
-        android:id="@+id/button3"
-        android:onClick="RegisterC"
-        android:elevation="0dp"
-        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="Register Here"
+        android:id="@+id/button4"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
+        android:onClick="RegisterC"
         android:textSize="24sp"
+        android:elevation="0dp"
+        android:textAlignment="center"
         android:fontFamily="serif"
-        android:backgroundTint="?android:attr/textColorHighlight"
-        android:textAllCaps="false" />
+        android:backgroundTint="#56c271"
+        android:textAllCaps="false"
+        android:textColor="@color/cast_libraries_material_featurehighlight_text_header_color"
+         />
+
+
 
 
 </RelativeLayout>

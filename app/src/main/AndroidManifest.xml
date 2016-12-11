@@ -25,7 +25,7 @@
         android:label="Kwality"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AfterLoginTry">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +45,7 @@
         <activity android:name=".Breads" />
         <activity android:name=".AfterCart" />
         <activity
-            android:name=".Login"
+            android:name=".AfterLoginTry"
             android:label="@string/title_activity_after_login_try"
             android:theme="@style/AppTheme" />
         <!--

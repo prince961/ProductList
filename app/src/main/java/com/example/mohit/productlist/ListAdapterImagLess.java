@@ -85,8 +85,8 @@ public class ListAdapterImagLess extends ArrayAdapter<ModelProducts> {
                 if(quantity == 0){ controller.getCart().setProducts(productList.get(position));
                     notifyDataSetChanged();
 
-                    Toast.makeText(getContext(), controller.getNoodleP(position).getProductName(),
-                            Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), controller.getNoodleP(position).getProductName()+" Added to cart",
+                            Toast.LENGTH_SHORT).show();
 
 
                     //Snackbar.make(view, "Your have no items in your cart", Snackbar.LENGTH_LONG)

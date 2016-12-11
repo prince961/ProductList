@@ -4,7 +4,9 @@
     android:id="@+id/activity_noodle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.mohit.productlist.Noodle">
+    tools:context="com.example.mohit.productlist.Noodle"
+    android:background="?android:windowBackground"
+    >
 
     <ImageView
         android:layout_width="match_parent"

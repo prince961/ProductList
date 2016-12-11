@@ -31,7 +31,7 @@
         <ImageView
             android:layout_width="30dp"
             android:id="@+id/reduceBtn"
-            android:src="@drawable/btn_reduce"
+            android:src="@drawable/minus_button"
             android:clickable="true"
             android:layout_height="30dp" />
 
@@ -49,7 +49,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/addBtn"
-            android:src="@drawable/btn_add"
+            android:src="@drawable/plus_button"
             android:clickable="true" />
 
 

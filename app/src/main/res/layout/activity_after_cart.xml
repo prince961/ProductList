@@ -9,7 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mohit.productlist.AfterCart"
-    android:background="@android:color/holo_orange_light">
+    android:background="?android:windowBackground"
+    >
 
     <TextView
         android:text="Your Order Has Been Placed"
