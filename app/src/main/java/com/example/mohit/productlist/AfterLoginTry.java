@@ -119,6 +119,7 @@ public class AfterLoginTry extends AppCompatActivity
     */
 
 
+
     FragmentManager fragmentManager = getFragmentManager();
     public void noodle(View view){
         fragmentManager.beginTransaction().replace(R.id.content_Frame, new CallFragment(),"CALL_FRAGMENT").commit();
@@ -147,6 +148,20 @@ public class AfterLoginTry extends AppCompatActivity
         } else if (id == R.id.contact_us) {
             Intent mapIntent = new Intent(this, MapsActivity.class);
             startActivity(mapIntent);
+
+        }
+
+        else if (id == R.id.nav_User) {
+            fragmentManager.beginTransaction().replace(R.id.content_Frame, new MyAccountFragment()).addToBackStack("NAV USER").commit();
+
+        }
+
+        else if (id == R.id.nav_Logout) {
+            UserLocalStore userLocalStore = new UserLocalStore(this);
+            userLocalStore.ClearUserData();
+            userLocalStore.SetUserLoggedIn(false);
+            Intent intent = new Intent(this,Login.class);
+            startActivity(intent);
 
         }
 

@@ -1,32 +1,36 @@
 package com.example.mohit.productlist;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Appetizer extends AppCompatActivity {
+/**
+ * Created by princ on 25-11-2016.
+ */
+
+public class StarterFragment extends Fragment {
+
 
     Controller controller = null;
-
+    View myView;
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_appetizer);
-        ListView listViewNoodle = (ListView) findViewById(R.id.LvAppetizer);
-        controller = (Controller) getApplicationContext();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        myView = inflater.inflate(R.layout.activity_appetizer,container,false);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+
+
+        ListView listViewAppetizer = (ListView) myView.findViewById(R.id.LvAppetizer);
+        controller = (Controller) getActivity().getApplicationContext();
 
         ArrayList<ModelProducts> AppetizerList = new ArrayList<>();
         ModelProducts Veg65 = new ModelProducts("Veg. 65", " ", 80, 0,201);
@@ -50,19 +54,23 @@ public class Appetizer extends AppCompatActivity {
         AppetizerList.add( chickenSchezwanNoodle);
         AppetizerList.add( chickenTripleNoodle);
 
-
         controller.addNoodlePs(AppetizerList);
 
-        ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getBaseContext(), R.layout.list_item_imageless, AppetizerList, controller);
-        listViewNoodle.setAdapter(listAdapterImagLess);
+        ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, AppetizerList, controller);
+        listViewAppetizer.setAdapter(listAdapterImagLess);
 
+
+        return myView;
     }
 
 
 
-    public void goToCart(View view) {
-        Intent intent = new Intent(this, CartActivity.class);
-        startActivity(intent);
-    }
+  //n ftxg = fragmentManager.beginTransaction().replace( R.id.fragment, new MyFragment() ).addToBackStack( "tag" ).commit();
+
+
+
+
+
+
 
 }

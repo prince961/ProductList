@@ -65,27 +65,28 @@ public class ListAdapterImagLess extends ArrayAdapter<ModelProducts> {
             //mainViewHolder.title.setText(getItem(position).getProductName());
             //mainViewHolder.price.setText(getItem(position).getProductPrice());
         }
+        final ProductListViewHolder finalViewHolder = viewHolder;
 
         //viewHolder.quantity.setText(Integer.toString(controller.getProducts(position).getProductQuantity()));
         viewHolder.title.setText(getItem(position).getProductName());
-        viewHolder.quantity.setText(Integer.toString(getItem(position).getProductQuantity()));
+        finalViewHolder.quantity.setText(Integer.toString(getItem(position).getProductQuantity()));
         viewHolder.price.setText(Integer.toString(getItem(position).getProductPrice()));
         //final ListAdapterImagLess.ProductListViewHolder finalViewHolder = viewHolder;
-        final ProductListViewHolder finalViewHolder = viewHolder;
+        //final ProductListViewHolder finalViewHolder = viewHolder;
         viewHolder.addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //String StringQuantity = viewHolder.quantity.getText().toString();
                 //int quantity = Integer.parseInt(StringQuantity);
-                int quantity = controller.getNoodleP(position).getProductQuantity();
+                int quantity = getItem(position).getProductQuantity();
                 int newQuant = quantity+1;
-                controller.getNoodleP(position).setProductQuantity(newQuant);
-                finalViewHolder.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
+                getItem(position).setProductQuantity(newQuant);
+                finalViewHolder.quantity.setText(Integer.toString(getItem(position).getProductQuantity()));
                 //viewHolder.quantity.setText(Integer.toString(controller.getProducts(position).getProductQuantity()));
                 if(quantity == 0){ controller.getCart().setProducts(productList.get(position));
                     notifyDataSetChanged();
 
-                    Toast.makeText(getContext(), controller.getNoodleP(position).getProductName()+" Added to cart",
+                    Toast.makeText(getContext(), getItem(position).getProductName()+" Added to cart",
                             Toast.LENGTH_SHORT).show();
 
 
@@ -105,11 +106,13 @@ public class ListAdapterImagLess extends ArrayAdapter<ModelProducts> {
                 if (quantity>0){
                     int newQuant = quantity-1;
                     if(newQuant == 0){controller.getCart().removeProduct(productList.get(position));
-                        finalViewHolder.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
+                        finalViewHolder.quantity.setText(Integer.toString(getItem(position).getProductQuantity()));
                         //finalViewHolder.quantity.setText(Integer.toString(21));
+                        Toast.makeText(getContext(), getItem(position).getProductName()+" Removed from cart",
+                                Toast.LENGTH_SHORT).show();
                     }
                     productList.get(position).setProductQuantity(newQuant);
-                    finalViewHolder.quantity.setText(Integer.toString(controller.getNoodleP(position).getProductQuantity()));
+                    finalViewHolder.quantity.setText(Integer.toString(getItem(position).getProductQuantity()));
                     notifyDataSetChanged();
                 }
 

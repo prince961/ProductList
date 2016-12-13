@@ -37,7 +37,31 @@ public class CategoriesFragmenent2 extends Fragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.content_Frame, new NoodleFragment()).addToBackStack(null).commit();
 
+            }
+        });
 
+        ImageView starterImage = (ImageView) myView.findViewById(R.id.imageView3);
+        //Button button = new Button()
+        starterImage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new StarterFragment()).addToBackStack(null).commit();
+
+            }
+        });
+
+        ImageView nonVegMain = (ImageView) myView.findViewById(R.id.imageView4);
+        //Button button = new Button()
+        nonVegMain.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new NonVegMainCourseFragment()).addToBackStack(null).commit();
 
             }
         });

@@ -20,4 +20,15 @@ public class User {
         this("", -1, username, password);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }

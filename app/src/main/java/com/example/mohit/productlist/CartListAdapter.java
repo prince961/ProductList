@@ -46,7 +46,7 @@ public class CartListAdapter  extends ArrayAdapter<ModelProducts> {
             mainViewHolder.addBtn = (ImageView)convertView.findViewById(R.id.addBtn);
             mainViewHolder.reduceBtn = (ImageView) convertView.findViewById(R.id.reduceBtn);
             mainViewHolder.quantity = (TextView) convertView.findViewById(R.id.tvQuantityCart);
-            mainViewHolder.deleteFromCartIv = (ImageView) convertView.findViewById(R.id.deleteCartIv);
+            //mainViewHolder.deleteFromCartIv = (ImageView) convertView.findViewById(R.id.deleteCartIv);
 
             convertView.setTag(mainViewHolder);
 
@@ -73,6 +73,7 @@ public class CartListAdapter  extends ArrayAdapter<ModelProducts> {
             }
         });
 
+        /*
         mainViewHolder.deleteFromCartIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +94,7 @@ public class CartListAdapter  extends ArrayAdapter<ModelProducts> {
                 refreshTotalAmountTv();
                 notifyDataSetChanged();
             }
-        });
+        }); */
 
         final CartViewHolder finalMainViewHolder1 = mainViewHolder;
         mainViewHolder.reduceBtn.setOnClickListener(new View.OnClickListener() {

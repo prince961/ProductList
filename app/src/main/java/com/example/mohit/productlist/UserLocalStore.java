@@ -2,6 +2,7 @@ package com.example.mohit.productlist;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.annotation.IntegerRes;
 
 /**
  * Created by mohit on 10/4/2016.
@@ -34,12 +35,14 @@ public class UserLocalStore {
             return null;
         }
 
-        String name = userLocalDatabase.getString("name", "");
+        //String name = userLocalDatabase.getString("name", "");
+        int name = userLocalDatabase.getInt("name", -1);
+        String StringName = Integer.toString(name);
         String username = userLocalDatabase.getString("username", "");
         String password = userLocalDatabase.getString("password", "");
         int age = userLocalDatabase.getInt("age", -1);
 
-        User user = new User(name, age, username, password);
+        User user = new User(StringName, age, username, password);
         return user;
     }
 

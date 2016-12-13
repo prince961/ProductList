@@ -4,34 +4,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:columnCount="4"
+    android:columnCount="2"
     android:rowCount="4"
     android:layout_marginBottom="5dp"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="title"
-        android:textSize="20sp"
-        android:id="@+id/item_title"
-        android:layout_row="2"
-        android:layout_column="1"
-        android:layout_rowWeight="0.1"
-        android:layout_gravity="bottom"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:id="@+id/deleteCartIv"
-        android:src="@drawable/cross_button"
-        android:layout_row="2"
-        android:layout_column="3"
-        android:layout_gravity="right"
-        android:clickable="true"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="5dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -39,22 +16,26 @@
         android:id="@+id/item_price1"
         android:text="price"
         android:layout_row="3"
-        android:layout_column="1"
+        android:layout_column="0"
         android:textSize="18sp"
-        android:gravity="bottom"
+        android:gravity="left"
         android:layout_gravity="bottom"
-        android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+        android:paddingLeft="5dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+         />
 
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_row="3"
-        android:layout_column="3"
+        android:layout_column="1"
         android:paddingLeft="10dp"
         android:paddingTop="2dp"
         android:orientation="horizontal"
-        android:layout_marginBottom="6dp">
+        android:layout_marginBottom="6dp"
+        android:layout_gravity="right">
 
         <ImageView
             android:layout_width="25dp"
@@ -85,6 +66,21 @@
             android:clickable="true"
             android:layout_gravity="bottom"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:paddingLeft="5dp"
+        android:textSize="20sp"
+        android:layout_columnSpan="2"
+        android:id="@+id/item_title"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_rowWeight="0.1"
+        android:layout_gravity="left"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+         />
 
 
 </GridLayout>
