@@ -1,12 +1,14 @@
 package com.example.mohit.productlist;
 
 import android.app.Fragment;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -23,15 +25,22 @@ public class StarterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.activity_appetizer,container,false);
+        myView = inflater.inflate(R.layout.activity_noodle,container,false);
 
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.VISIBLE);
 
+        ImageView categoryImage = (ImageView) myView.findViewById(R.id.IvNoodleCat);
+        Drawable catImage = getResources().getDrawable(R.drawable.appetizers);
+        categoryImage.setImageDrawable(catImage);
 
-        ListView listViewAppetizer = (ListView) myView.findViewById(R.id.LvAppetizer);
+
+        ListView listViewAppetizer = (ListView) myView.findViewById(R.id.LvNoodle);
         controller = (Controller) getActivity().getApplicationContext();
+        //assuming if 201 is there then all other category products will be there
+        boolean productInCart = controller.checkAppetizerId(201);
 
+        if(productInCart == false){
         ArrayList<ModelProducts> AppetizerList = new ArrayList<>();
         ModelProducts Veg65 = new ModelProducts("Veg. 65", " ", 80, 0,201);
         ModelProducts PaneerMbc = new ModelProducts("Paneer Mushroom Babycorn Crispy", "Veg Noodle with a twist of Schezwan", 120, 0,202);
@@ -54,13 +63,18 @@ public class StarterFragment extends Fragment {
         AppetizerList.add( chickenSchezwanNoodle);
         AppetizerList.add( chickenTripleNoodle);
 
-        controller.addNoodlePs(AppetizerList);
+        controller.addAppetizertoAl(AppetizerList);
 
         ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, AppetizerList, controller);
         listViewAppetizer.setAdapter(listAdapterImagLess);
 
 
-        return myView;
+        return myView;}else {
+            ArrayList<ModelProducts> AppetizerList = controller.getAppetizerProductAl();
+            ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, AppetizerList, controller);
+            listViewAppetizer.setAdapter(listAdapterImagLess);
+            return myView;
+        }
     }
 
 

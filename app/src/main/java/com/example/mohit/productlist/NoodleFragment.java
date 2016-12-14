@@ -40,6 +40,9 @@ public class NoodleFragment extends Fragment {
         ListView listViewNoodle = (ListView) myView.findViewById(R.id.LvNoodle);
         controller = (Controller) getActivity().getApplicationContext();
 
+        boolean productInCart = controller.checkid(101);
+        if (productInCart == false){
+
         ArrayList<ModelProducts> noodleProducts = new ArrayList<>();
         ModelProducts vegNoodle = new ModelProducts("Veg. Noodle", "Vegetarian Noodles", 80, 0,101);
         ModelProducts vegShezwanNoodle = new ModelProducts("Veg Schezwan Noodle", "Veg Noodle with a twist of Schezwan", 90, 0,102);
@@ -67,9 +70,17 @@ public class NoodleFragment extends Fragment {
 
         ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, noodleProducts, controller);
         listViewNoodle.setAdapter(listAdapterImagLess);
+            return myView;}
+
+        else {
+            ArrayList<ModelProducts> noodleProducts = controller.getNoodleProducts();
+            ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, noodleProducts, controller);
+            listViewNoodle.setAdapter(listAdapterImagLess);
+            return myView;}
+        }
 
 
-        return myView;
+
     }
 
 
@@ -82,4 +93,4 @@ public class NoodleFragment extends Fragment {
 
 
 
-}
+

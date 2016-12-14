@@ -65,6 +65,31 @@ public class CategoriesFragmenent2 extends Fragment {
 
             }
         });
+        ImageView VegMain = (ImageView) myView.findViewById(R.id.imageView2);
+        //Button button = new Button()
+        VegMain.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new VegMainCourseFragment()).addToBackStack(null).commit();
+
+            }
+        });
+
+        ImageView Breads = (ImageView) myView.findViewById(R.id.Breads);
+        //Button button = new Button()
+        Breads.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_Frame, new BreadsFragment()).addToBackStack(null).commit();
+
+            }
+        });
         return myView;
     }
 }

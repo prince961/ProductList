@@ -3,7 +3,6 @@ package com.example.mohit.productlist;
 import android.app.Fragment;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
  * Created by princ on 25-11-2016.
  */
 
-public class NonVegMainCourseFragment extends Fragment {
+public class VegMainCourseFragment extends Fragment {
 
     Controller controller = null;
     View myView;
@@ -33,26 +32,26 @@ public class NonVegMainCourseFragment extends Fragment {
 
         ListView listView = (ListView) myView.findViewById(R.id.LvNoodle);
         ImageView categoryImage = (ImageView) myView.findViewById(R.id.IvNoodleCat);
-        Drawable catImage = getResources().getDrawable(R.drawable.nonvegmain);
+        Drawable catImage = getResources().getDrawable(R.drawable.paneer);
         categoryImage.setImageDrawable(catImage);
         controller = (Controller) getActivity().getApplicationContext();
 
-        boolean productInCart = controller.checkNonVegMainCourseId(401);
+        boolean productInCart = controller.checkVegMainCourseId(301);
         if (productInCart==false) {
 
             ArrayList<ModelProducts> noodleProducts = new ArrayList<>();
-            ModelProducts vegNoodle = new ModelProducts("Chicken Lawabdar", "Vegetarian Noodles", 80, 0, 401);
-            ModelProducts vegShezwanNoodle = new ModelProducts("Chicken Kalimirch Masala", "Veg Noodle with a twist of Schezwan", 90, 0, 402);
-            ModelProducts vegTripleNoodle = new ModelProducts("Chicken Peshawari", "Veg. Triple Noodle", 100, 0, 403);
-            ModelProducts vegMunchurianNoodle = new ModelProducts("Chicken Kadai", "Veg Munchurian Noodle", 90, 0, 404);
-            ModelProducts PaneerNoodle = new ModelProducts("Tawa Chicken", "Enjoy your Noodle with Paneer", 100, 0, 405);
-            ModelProducts EggNoodle = new ModelProducts("Chilli Chicken", "Noodle With eggs", 80, 0, 406);
-            ModelProducts chickenHakkaNoodle = new ModelProducts("Chicken Soya Kadai", "Delicious hakka noodle with chicken", 90, 0, 407);
-            ModelProducts chickenSchezwanNoodle = new ModelProducts("Chicken Handi", "Chicken Noodle with schezwan sauce", 100, 0, 408);
-            ModelProducts chickenTripleNoodle = new ModelProducts("Chicken Patiala", "Chicken Triple Noodle", 110, 0, 409);
-            ModelProducts chickenManchurianNoodle = new ModelProducts("Butter Chicken", "Chicken noodle with munchurian gravy", 100, 0, 410);
-            noodleProducts.add(0, vegNoodle);
-            noodleProducts.add(1, vegShezwanNoodle);
+            ModelProducts Veg65 = new ModelProducts("Veg 65", " ", 180, 0,301);
+            ModelProducts PaneerMbc = new ModelProducts("Paneer Mushroom Babycorn Crispy", "Veg Noodle with a twist of Schezwan", 120, 0,302);
+            ModelProducts vegTripleNoodle = new ModelProducts("Mushroom Garlic Chilli", "Veg. Triple Noodle", 130, 0,303);
+            ModelProducts vegMunchurianNoodle = new ModelProducts("Mushroom Soyabean", "Veg Munchurian Noodle", 180, 0,304);
+            ModelProducts PaneerNoodle = new ModelProducts("Veg Munchurian", "Enjoy your Noodle with Paneer", 120, 0,305);
+            ModelProducts EggNoodle = new ModelProducts("Paneer Tikka", "Noodle With eggs", 180, 0,306);
+            ModelProducts chickenHakkaNoodle = new ModelProducts("Paneer Butterr Masala", "Delicious hakka noodle with chicken", 190, 0, 307);
+            ModelProducts chickenSchezwanNoodle = new ModelProducts("Paneer Angare", "Chicken Noodle with schezwan sauce", 150, 0,308);
+            ModelProducts chickenTripleNoodle = new ModelProducts("Paneer Kadai", "Chicken Triple Noodle", 110, 0,309);
+            ModelProducts chickenManchurianNoodle = new ModelProducts("Shahi Paneer", "Chicken noodle with munchurian gravy", 140, 0,310);
+            noodleProducts.add(0, Veg65);
+            noodleProducts.add(1, PaneerMbc);
             noodleProducts.add(2, vegTripleNoodle);
             noodleProducts.add(3, vegMunchurianNoodle);
             noodleProducts.add(4, PaneerNoodle);
@@ -62,14 +61,14 @@ public class NonVegMainCourseFragment extends Fragment {
             noodleProducts.add(8, chickenSchezwanNoodle);
             noodleProducts.add(9, chickenTripleNoodle);
 
-            controller.setNonVegMainAl(noodleProducts);
+            controller.setVegMainCourse(noodleProducts);
 
             ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, noodleProducts, controller);
             listView.setAdapter(listAdapterImagLess);
 
             return myView;
         }else {
-            ArrayList<ModelProducts> categoryList = controller.getNonVegMainAl();
+            ArrayList<ModelProducts> categoryList = controller.getVegMainCourse();
             ListAdapterImagLess listAdapterImagLess = new ListAdapterImagLess(getActivity().getBaseContext(), R.layout.list_item_imageless, categoryList, controller);
             listView.setAdapter(listAdapterImagLess);
             return myView;

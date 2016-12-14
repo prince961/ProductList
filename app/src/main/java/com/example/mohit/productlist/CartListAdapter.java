@@ -116,6 +116,7 @@ public class CartListAdapter  extends ArrayAdapter<ModelProducts> {
                 if (quantity == 1){
                     //productList.remove(theProduct);
                     //controller.getCart().getCartProducts().get(position).setProductQuantity(0);
+                    productList.get(position).setProductQuantity(0);
                     controller.getCart().removeProduct(theProduct);
                     CartListAdapter.this.notifyDataSetChanged();
                     refreshTotalAmountTv();
@@ -140,16 +141,16 @@ public class CartListAdapter  extends ArrayAdapter<ModelProducts> {
         ImageView addBtn;
         ImageView reduceBtn;
         TextView quantity;
-        ImageView deleteFromCartIv;
+        //ImageView deleteFromCartIv;
     }
 
     private void refreshTotalAmountTv() {
-        Double totalAmount = 0.0;
+        int totalAmount = 0;
         int numberProducts = productList.size();
         for (int i = 0; i < numberProducts; i++) {
             int pQuantity = productList.get(i).getProductQuantity();
             int pPrice = productList.get(i).getProductPrice();
-            double pAmountI = pPrice * pQuantity;
+            int pAmountI = pPrice * pQuantity;
 
             totalAmount = totalAmount + pAmountI;
         }

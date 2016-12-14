@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Login extends AppCompatActivity {
 
     Button bLogin;
@@ -78,7 +80,10 @@ public class Login extends AppCompatActivity {
         userLocalStore.SetUserLoggedIn(true);
         Intent intent = new Intent(this, AfterLoginTry.class);
         startActivity(intent);
+
     }
+
+
 
 
 }
